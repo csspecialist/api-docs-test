@@ -13,3 +13,43 @@ Run the following command in your terminal to install the SDK:
 
 ```bash
 npm install @example/user-sdk
+Interactive Test
+You can test your connection status by clicking the button below. This uses our custom React component library.
+
+import { Button } from '@site/src/components/Button';
+
+<Button label="Click Me" onClick={() => alert('Connection Successful!')} />
+
+:::tip
+Ensure your .env file is configured before running the test.
+:::
+
+
+---
+
+### 3. `/api/schema.json` (JSON Data)
+This represents the raw technical data often found in **ReadMe** or **OpenAPI** documentation. You should configure your tool to only translate the `description` and `title` values.
+
+```json
+{
+  "title": "User Profile",
+  "type": "object",
+  "description": "User profile data retrieved from the central identity provider.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the user."
+    },
+    "username": {
+      "type": "string",
+      "description": "The display name chosen by the user."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The primary contact email address."
+    }
+  },
+  "required": ["id", "username"]
+}
+
