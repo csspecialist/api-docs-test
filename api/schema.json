@@ -1,0 +1,38 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "User Profile Service",
+    "version": "1.0.0",
+    "description": "This schema defines the structure of a user profile record used across our global identity services."
+  },
+  "components": {
+    "schemas": {
+      "UserProfile": {
+        "type": "object",
+        "description": "The primary data object representing a registered user.",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "A unique internal identifier assigned at registration. Do not modify."
+          },
+          "display_name": {
+            "type": "string",
+            "description": "The public-facing name chosen by the user for community interactions."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "suspended", "pending"],
+            "description": "The current lifecycle state of the user account."
+          },
+          "last_login": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The ISO 8601 timestamp of the user's most recent session."
+          }
+        },
+        "required": ["user_id", "display_name", "status"]
+      }
+    }
+  }
+}
